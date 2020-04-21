@@ -1,0 +1,40 @@
+
+<form [formGroup]="formInput" *ngFor="let list of Facture" >
+
+    <mat-form-field class="example-full-width" style="display: block;">
+      <mat-label>Choisir la date</mat-label>
+      <input  matInput formControlName="date" value="{{list.date}}" [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" style="display: block;">
+        <textarea matInput placeholder="Description" value="{{list.description}}" formControlName="description"></textarea>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" style="display: block;">
+        <input matInput type="number" placeholder="Prix du repas" value="{{list.prix_repas}}" formControlName="prix_repas">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" style="display: block;">
+        <input matInput type="number" placeholder="Prix de l'hotel" value="{{list.prix_hotel}}" formControlName="prix_hotel">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" style="display: block;">
+        <input matInput type="number" placeholder="Prix du transport" value="{{list.prix_transport}}" formControlName="prix_transport">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" style="display: block;">
+        <input matInput type="number" placeholder="Nombre de kilometre" value="{{list.nombre_kilometre}}" formControlName="nombre_kilometre">
+    </mat-form-field>
+    
+    
+    
+    <div style="text-align:right;">
+
+        <button mat-flat-button color="warn" style="margin-right: 10px;" (click)="deleteFacture()">Supprimer</button>
+        <button mat-flat-button color="primary" (click)="add()">Modifier</button>
+
+    </div>
+    
+    </form>

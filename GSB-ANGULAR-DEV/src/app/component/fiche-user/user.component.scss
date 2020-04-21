@@ -1,0 +1,65 @@
+.fiche-user-container{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-img{
+  width: 130px;
+  border-radius: 100px;
+  margin-right: 50px;
+  height: 130px;
+  object-fit: cover;
+}
+
+.user-top-detail{
+    display: flex;
+    align-items: center;
+}
+
+.user-role{
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.user-name{
+    font-size: 17px;
+}
+
+
+.password_form{
+    width:50%;
+  }
+  .settings_input{
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    width: 100%;
+    background: #cf9bf90f;
+    resize: vertical;
+    color: black;
+    padding: 10px;
+  }
+  .form-group, .savesettings{
+    padding-right: 11px;
+    padding-left: 11px;
+  }
+  .savesettings{
+    margin-bottom: 30px;
+  }
+  .settings_title{
+    font-weight: bold;
+    color: #757575;;
+  }
+  .settings_subtitle{
+    color: #afafaf;
+    font-size: 13px;
+  }
+
+  .col-md-4{
+    padding-right: 11px;
+    padding-left: 11px;
+  }

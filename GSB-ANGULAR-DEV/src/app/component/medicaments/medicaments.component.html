@@ -1,0 +1,63 @@
+<div *ngIf="MedicamentDto != '' ">
+<div class="top-div" >
+  <h3 class="title-component">{{ title }}</h3>
+   <button *ngIf="role === 'Admin' || role === 'Commercial' " mat-flat-button color="primary" (click)="addMedicament()">Ajouter un médicament</button>
+</div>
+<div class="med_style_container" style="padding-right: 15px;padding-left: 15px;">
+
+
+<div class="med_container" *ngFor="let list of MedicamentDto">
+  <div class="med">
+    <div class="med_thumbnail">
+      <div class="sh-ratio">
+        <div class="sh-ratio-container">
+  <div class="sh-ratio-content" [style.background-image]="'url(http://localhost:3000/api/avatar/' + list.img + ')'">
+  </div>
+</div>
+</div> 
+<a class="post-overlay">
+  <div class="post-overlay-content">
+  </div>
+</a>
+</div>
+<div class="post-content-container">
+  <div class="post-categories-container">
+    <div class="post-categories">
+      <a>Categorie</a>
+    </div>
+  </div> 
+  <a  class="post-title">
+    <h4> {{list.nom}} </h4>
+  </a>
+  <div class="post-meta">
+    <div class="post-meta-content">
+      <div style="margin-bottom: 10px;">
+        {{list.description}}
+      </div>
+      <button mat-flat-button color="warn" *ngIf="role === 'Commercial' || role === 'Admin'" (click)="deleteMedicament(list.id)" >Supprimer</button>
+      <button mat-flat-button color="primary" *ngIf="role === 'Commercial' || role === 'Admin'" (click)="openDialog(list.id)" style="margin-left:10px" >Modifier</button>
+      <button mat-flat-button color="primary" *ngIf="role === 'Doctor' || role === 'Admin'" (click)="buyMedicine(list.id)" style="margin-left:10px" >Acheter</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div *ngIf="MedicamentDto == '' ">
+  <div style="height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: -webkit-fill-available;">
+  <div style="text-align: center;">
+    <img src="http://localhost:4200/assets/pale-uploading.png" style="width: 400px;" alt="">
+    <h5 style="font-weight: bold;margin-top: 0;">Oh non!</h5>
+    <p style="margin-bottom: 0;margin-top: 0;">Votre liste est vide,</p>
+    <p style="margin-top: 0;">cliquer sur le bouton pour ajouter des médicaments.</p>
+   <button *ngIf="role === 'Admin' || role === 'Commercial' " class="add-button-alt" mat-flat-button color="primary" style="display: block;margin:auto" (click)="addMedicament()">Ajouter un médicament</button>
+  </div>
+  </div>
+</div>

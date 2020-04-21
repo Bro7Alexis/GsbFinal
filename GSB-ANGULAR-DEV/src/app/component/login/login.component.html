@@ -1,0 +1,68 @@
+<div class="limiter">
+
+    <div class="container">
+
+        <div class="wrap-login">
+
+             <div class="left-side">
+
+                <div class="logo-container">
+                        <img class="logo-gsb" src="../assets/Logo-gsb.png" alt="">
+                </div>
+            
+                    <span class="login-title">Connectez-vous</span>
+
+                    <form [formGroup]="formInput"  >
+                                
+                            <div>
+                                <!--Identifiant-->
+                                <mat-form-field class="example-full-width">
+                                    
+                                    <input matInput placeholder="Email" autocomplete="off" formControlName="email">
+
+                                </mat-form-field>
+                                <!--Identifiant-->
+
+                        </div>
+
+                        <div>
+
+                                <!--Mot de passe-->
+                                <mat-form-field class="example-full-width">
+
+                                    <input matInput placeholder="Mot de passe" [type]="!hide ? 'password' : 'text'" autocomplete="new-password"  formControlName="password">
+
+                                    <!--bouton permettant le changement de la visibilité du mdp-->
+                                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        
+                                        <!-- change le bouton en visible ou inversement-->
+                                        <mat-icon >{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+                                    </button>
+                                    
+                                </mat-form-field>
+                         <!--Mot de passe-->
+                   
+                   </div>     
+                
+
+
+
+                   <div class="container-loggin-button">
+                     <button class="loggin-button" (click)="login()" >Se connecter</button>
+                   </div>
+
+                
+                </form>
+
+            </div>
+
+            <div class="right-side">
+
+            </div>
+
+    </div>
+
+    </div>
+
+</div>

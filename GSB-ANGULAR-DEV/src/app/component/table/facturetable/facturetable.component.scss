@@ -1,0 +1,64 @@
+.mat-paginator {
+    background: #ffffff00;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 23px !important;
+    line-height: 1.42857143;
+    vertical-align: top;    
+    text-align: left;
+    border:none;
+}
+
+.table>tbody>tr>td{
+    padding-top: 35px !important;
+    padding-bottom: 35px !important;
+    background: #f4f6fa;
+    border-bottom: 2px solid #f4f6fa;
+    font-weight: 600;
+    color: #4d5765 !important;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.table>thead>tr>th{
+    font-size: 12px;
+    
+    text-transform: uppercase;
+    color:#b1b6bf;
+
+}
+
+.table>thead>tr>th:last-child{
+    border-bottom-right-radius: 10px;
+}
+
+.table>thead>tr>th:first-child{
+    color:#4d5765 !important;
+    border-bottom-left-radius: 10px;
+}
+
+.tablecontent{
+    border-radius: 10px;
+    width: 100%;
+}
+
+.table{
+    width:100%;
+}
+
+.table-stats table th, .table-stats table td {
+    border:none;
+}
+
+.Doctor{
+    background:#00b2dc;
+}
+
+.Admin{
+    background: #2dca73;
+}
+
+.Comptable{
+    background: #e41cc2;
+}

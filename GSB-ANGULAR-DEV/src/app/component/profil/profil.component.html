@@ -1,0 +1,124 @@
+<div class="top-div" ><h3 class="title-component">{{ title }}</h3></div>
+<div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab"><span style="display:block" class="settings_title">Paramétres personnel</span>
+<span class="settings_subtitle"> Personnaliser vos informations</span></a></li>
+<li  *ngIf="role == 'Admin'"><a href="signup" ><span style="display:block" class="settings_title">Nouvel utilisateur</span>
+    <span class="settings_subtitle">Ajouter un nouvel utilisateur</span></a></li>
+        <li><a href="#about" data-toggle="tab"><span style="display:block" class="settings_title">Theme</span>
+<span class="settings_subtitle">Choisissez entre blanc et noir</span></a></li>
+    </ul>
+    <div class="tab-content ">
+        <div class="tab-pane active" id="home">                
+            <div class="">
+<section class="section_info" style=" margin-top: 15px !important">
+  <div class="sh-table sh-titlebar-height-small" style="padding: 0px 11px 5px;">
+  <div><span class="settings_title">Paramétres personnel</span></div>
+  <div><span class="settings_subtitle">Personnaliser vos informations</span></div>
+</div>
+
+<div class="sh-table sh-titlebar-height-small" style="padding: 0px 11px 5px;">
+<div><span class="settings_title">Détails de votre compte</span></div>
+</div>
+
+<div>
+<form [formGroup]="formUpdateCredential" *ngIf="UserDto" id="settings_perso" autocomplete="off">
+<div class="form-row" id="userinfo" *ngFor="let user of UserDto">
+
+    <div class="media media_settings">
+        <div class="user_img user_img_settings" href="#">
+        
+            <img class="user-img" style="width: 150px;height: 150px;border-radius: 90px;object-fit: cover;cursor: pointer;" [src]="url || 'http://localhost:3000/api/avatar/' + user.image" alt="">  
+              <span class="user_settings_name">{{user.firstName}} {{user.lastName}}</span>   
+            <label for="file" class="label-file" style="display: block;">Choisir une image</label>
+           <input id="file" class="input-file" (change)="onSelectFile($event)" name="userprofile" type="file">
+        </div>
+        </div>
+
+<div class="form-group col-md-6">
+<label class="settings_subtitle" for="firstname">Prénom</label>
+<input class="form-control" style="background:#f3f3f4" name="firstname" type="text" id="firstname" formControlName="firstName" value={{user.firstName}}>
+</div>
+
+
+<div class="form-group col-md-6">
+<label class="settings_subtitle" for="lastname">Nom</label>
+<input class="form-control form_control" style="background:#f3f3f4" type="text" name="lastname" id="lastname" formControlName="lastName" value={{user.lastName}}>
+</div>
+
+<div class="form-group col-md-6">
+<label class="settings_subtitle" for="email">E-mail</label>
+<input class="form-control" style="background:#f3f3f4" type="text" autocomplete="disabled" id="email" name="email" formControlName="email" value={{user.email}}>
+</div>
+
+<div class="form-group col-md-6">
+    <label class="settings_subtitle" for="adresse">Adresse</label>
+    <input class="form-control" style="background:#f3f3f4" type="text" id="adresse" name="address" formControlName="address" value={{user.address}}>
+</div>
+
+<div class="form-group col-md-6">
+    <label class="settings_subtitle" for="actualpswd">Mot de passe</label>
+    <input class="form-control" style="background:#f3f3f4" autocomplete='new-password' type="password" formControlName="password" id="actualpswd" name="mdp" value="">
+</div>
+
+<div class="savesettings" style="float: left;width: 100%;">
+    <button class="send" (click)="UpdateCredential()" name="savesettings" id="savesettings">Sauvegarder</button>
+</div>
+
+<div class="form-group" style="float: left; width:100%"><span class="settings_title">Changer de mot de passe</span></div>
+<div class="col-md-4 mb-3">
+<label class="settings_subtitle" for="actualpswd">Ancien mot de passe</label>
+<input class="form-control" style="background:#f3f3f4" autocomplete='new-password' type="password" id="actualpswd" name="mdp">
+</div>
+
+<div class="col-md-4 mb-3">
+    <label class="settings_subtitle" for="newpswd">Nouveau mot de passe</label>
+    <input class="form-control" style="background:#f3f3f4" autocomplete='new-password' type="password" id="newpswd" name="mdp">
+</div>
+
+<div class="col-md-4 mb-3">
+    <label class="settings_subtitle" for="newpswd">Nouveau mot de passe</label>
+    <input class="form-control" style="background:#f3f3f4" autocomplete='new-password' type="password" id="newpswd" name="mdp">
+</div>
+
+</div>
+
+<div class="savesettings" style="float: left;width: 100%;">
+<input type="submit" class="send"  name="savesettings" id="savesettings" value="Sauvegarder">
+</div>
+</form>
+</div>
+</section>
+
+            </div>
+        </div> 
+
+
+        <div class="tab-pane" id="about"> 
+            <div class="">
+<section class="section_info" style="margin-top:15px !important">
+<div class="sh-table sh-titlebar-height-small" style="padding: 0px 11px 5px;">
+<div><span class="settings_title">Theme</span></div>
+<div><span class="settings_subtitle">Choisissez entre blanc et noir</span></div>
+</div>
+
+<div>
+<form method="post" id="insertTheme" style="padding: 0px 11px 5px;">
+<label for="theme" style="display:inline-block !important">Theme noir</label>
+<mat-slide-toggle
+id="theme"
+class="example-margin switch"
+[color]="color"
+[checked]="checked"
+[disabled]="disabled"
+(click)="themeSwitcher()" >
+Slide me!
+</mat-slide-toggle>
+</form>
+</div>
+
+</section>
+            </div>
+        </div>    
+    </div>
+</div>

@@ -1,0 +1,102 @@
+
+<div *ngIf="UserDto">
+
+<div *ngFor="let user of UserDto" >
+    <div class="doctor_info_container">
+
+        <div class="doctor_info">
+            <div class="top-div" >
+                <div class="breadcrum" style="display: flex;align-items: center;">
+                   <p style="font-size: 15px;font-weight: bold;">Commercial ></p> 
+                   <p style="font-size: 15px;" class="" *ngFor="let name of UserDto" > {{name.firstName}} {{name.lastName}} </p>
+                  </div>
+              </div>
+            <div class="user-top-detail" style="margin-bottom: 20px;"> 
+            <img class="user-img" src="http://localhost:3000/api/avatar/{{user.image}}" alt="">
+
+            <div>
+                <h5 class="user-name">Mr {{user.firstName}} {{user.lastName}}</h5>
+            </div>
+        </div>
+        <div class="card">
+            Tarifs et remboursements 
+Conventionné secteur 1
+Carte Vitale acceptée
+Tiers payant : Sécurité sociale
+Voir les tarifs
+Moyens de paiement
+Chèques, espèces et cartes bancaires
+        </div>
+        <div class="card">
+            Carte et informations d'accès
+            29B Route de Lyon, 69250 Neuville-sur-Saône
+            Moyens de transport
+            Bus - Gorgeat (lignes 40 et 70)
+            Bus - Bellegarde (lignes 70 et 40)
+            Parking public
+            Place du Capitaine Billon
+            13 Rue Pierre Corneille, Neuville-sur-Saône
+            Informations pratiques
+            1er étage avec ascenseur
+            Accès handicapé
+    </div>
+    <div class="card">
+        Présentation du professionnel de santé
+        Le docteur Marie ADAM vous reçoit dans son cabinet à Neuville-sur-Saône.
+        Spécialiste des allergies, le docteur ADAM vous reçoit pour le bilan diagnostic et le traitement, chez l'enfant et chez l'adulte :
+        - Des allergies respiratoires (rhinite, asthme, bilan de toux).
+        - Des allergies oculaires.
+</div>
+<div class="card">
+    Diplômes nationaux et universitaires
+    2014
+    Capacité d'allergologie - Université de Lyon
+    Autres formations
+    2011
+    Doctorat de médecine générale - Université de Lyon
+    Expériences
+    Praticienne attachée - Hôpital Femme-Mère-Enfant - Bron - allergologie pédiatrique
+</div>
+<div class="card">
+    Tarifs
+    Consultation simple
+    25 € à 48 €
+    Consultation avec tests cutanés
+    28,80 € à 51,42 €
+    Consultation avec tests respiratoires
+    40,28 € à 76,80 €
+    Consultation avec tests cutanés et respiratoires
+    54,68 € à 95,31 €
+    Ces honoraires vous sont communiqués à titre indicatif par le praticien. Ils peuvent varier selon le type de soins finalement réalisés en cabinet, le nombre de consultations et les actes additionnels nécessaires. En cas de dépassement des tarifs, le praticien doit en avertir préalablement le patient.
+</div>
+        </div>
+    </div>
+</div>
+        <div class="side_container" *ngFor="let user of UserDto">
+            <div>
+            <mat-calendar  style="padding-left: 20px; padding-right: 20px;" (selectedChange)="getChangedValue($event)" [(selected)]="selectedDate" [dateClass]="dateClass()"></mat-calendar>
+        </div>
+            <div *ngIf="hide == false" style="margin-top:20px;padding-left: 20px; padding-right: 20px;">
+                <h6 style="margin-bottom: 20px;" >Heures disponibles</h6>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" style="width: 100%;overflow: auto;" #group="matButtonToggleGroup">
+            <mat-button-toggle  value="list.hours" *ngFor="let list of displayhours ; let i=index" (click)="getHours(list.hours)" [value]="list.hours">{{list.hours}}</mat-button-toggle>
+          </mat-button-toggle-group>
+          <div>
+            <button mat-flat-button class="extend" color="primary" style="display: block; width: 100%; margin-top: 20px;" (click)="saveMeeting()" *ngIf="role == 'Commercial' || role == 'Admin'  ">Prendre rdv</button>
+        </div>
+        </div>
+        <div *ngIf="hide == true" style="margin-top:20px;padding-left: 20px; padding-right: 20px;">
+            <h6 style="margin-bottom: 20px;text-align:center;" >Veuillez chosir une date supérieur</h6>
+        </div>
+        <div class="doctor_info_sup" style="margin-top: 20px;border-top: 1px solid #dadbe4;">
+            <div style="padding-left: 20px;
+            padding-right: 20px;">
+                <div>
+                    <h6 style="margin-bottom: 20px;margin-top: 20px;" >Informations suplémentaires</h6>
+                    <p> Ville : {{user.address}}</p>
+                    <p> Adresse : {{user.address}}</p>
+                    <p> Batiment : {{user.address}}</p>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,16 @@
+
+<form *ngFor="let list of MedicamentDto">
+    <mat-form-field class="example-full-width" style="display: block;">
+    <input matInput placeholder="Nom" value="{{list.nom}}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="display: block;">
+    <textarea matInput placeholder="Description" value="{{list.description}}">{{list.description}}</textarea>
+</mat-form-field>
+<mat-form-field class="example-full-width" style="display: block;">
+    <input matInput placeholder="prix" value="5$">
+</mat-form-field>
+<div style="text-align:right;">
+    <button mat-flat-button color="primary"  >Sauvegader</button>
+</div>
+
+</form>

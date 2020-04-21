@@ -1,0 +1,49 @@
+
+mat-sidenav-content{
+    overflow: hidden !important;
+}
+.container-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-top-detail{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.doctor_info_container .doctor_info{
+    height: 100vh;
+    margin-right: 412px;
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow: auto;
+    padding-bottom: 60px;
+}
+
+.side_container {
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 412px;
+    margin-top: 64px;
+    border-left: 1px solid #dadbe4;
+    /* box-shadow: 3px 10px 5px 1px rgba(0, 0, 0, 0.2); */
+}
+
+.card{
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 12px rgba(23, 23, 23, 0.11);
+}
+
+.user-img{
+    width: 130px;
+    border-radius: 100px;
+    margin-right: 50px;
+    height: 130px;
+    object-fit: cover;
+  }

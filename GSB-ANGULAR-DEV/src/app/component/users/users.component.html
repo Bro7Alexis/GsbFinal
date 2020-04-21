@@ -1,0 +1,83 @@
+<div style="position: relative;">
+    <div *ngIf="loading" class="loader" >
+    <mat-spinner diameter="50"></mat-spinner>
+</div>
+<div class="top-div" >
+
+    <h3 class="title-component">{{ title }}</h3>
+     <button mat-flat-button color="primary" (click) = "toggleDisplay()" >	<mat-icon style="margin-right: 2px;font-size: 20px;">filter_list</mat-icon>Filtrer</button>
+</div>
+<div class="grid-container">
+    <div class="tablecontent">
+       <div class="contentFilter" [hidden] = "isShow"> 
+          <div class="filterSearch"> 
+            <label for="searchName">Prenom</label>
+            <app-search-bar  (input)="onSearchFirstnameChange($event.target.value)" class="search-bar" ngDefaultControl  name="searchTerm"></app-search-bar>
+          </div>
+          <div class="filterSearch">
+            <label for="searchName">Nom</label>
+            <app-search-bar  (input)="onSearchEmailChange($event.target.value)" ngDefaultControl  name="searchTerm"></app-search-bar>
+          </div>
+          <div class="filterSearch">
+            <label for="searchName">Email</label>
+            <app-search-bar  (input)="onSearchLastnameChange($event.target.value)" class="search-bar" ngDefaultControl  name="searchTerm"></app-search-bar>
+          </div>
+          <div class="filterSearch">
+            <span>
+              <label for="role">Rôle</label>
+              <a [matMenuTriggerFor]="menu" style="cursor: pointer;border:none" id="role" class="form-control"><span style="vertical-align: middle;">{{selectedRole}}</span></a> 
+              <mat-menu class="my-menu" #menu="matMenu">
+                  <button  [value]="Tout" (click)="getSelected(-1)" class="pointer" mat-menu-item>Tout</button>
+                  <button  [value]="Admin" (click)="getSelected(0)" class="pointer" mat-menu-item>Admin</button>
+                  <button  [value]="Doctor" (click)="getSelected(1)" class="pointer" mat-menu-item>Doctor</button>
+                  <button  [value]="Comptable" (click)="getSelected(2)" class="pointer" mat-menu-item>Comptable</button>
+                  <button  [value]="Commercial" (click)="getSelected(3)" class="pointer" mat-menu-item>Commercial</button>
+                </mat-menu>
+          </span>
+          </div>
+        </div>
+        <div *ngIf="displayedUsers">
+              <table  class="table table-striped dataTable no-footer" id="dtBasicExample" role="grid" aria-describedby="dtBasicExample_info">
+                <thead>
+                    <tr role="row">
+                        <th style=" width: 20px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Adresse email</th>
+                        <th style=" width: 34px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">Prénom</th>
+                        <th style=" width: 48px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Nom</th>
+                        <th style=" width: 62px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Adresse</th>
+                        <th style=" width: 85px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Rôle</th>
+                        <th style=" width: 5px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                        <!--  <th style="color: #757575; width: 261px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                        <th style="color: #757575; width: 261px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                        -->
+                    </tr>
+                </thead>
+                <tbody>                                                                                          
+                        <tr role="listitem" class="odd"  *ngFor="let list of displayedUsers; let lastlist = last"  >
+                            <td class="uid"><img style="    width: 41px;
+                              margin-right: 10px;
+                              border-radius: 80px;
+                              height: 41px;
+                              object-fit: cover;" 
+                              src="http://localhost:3000/api/avatar/{{list.image}}">{{ list.email }}</td>
+                            <td class="uid">{{ list.firstName }}</td>
+                            <td> <span class="name">{{ list.lastName }}</span></td>
+                            <td> <span class="name">{{ list.address }}</span></td>
+                            <td> <span class="name" [ngClass]="{'Admin' : list.role == 'Admin',
+                                                                'Doctor' : list.role == 'Doctor',
+                                                                'Comptable' : list.role == 'Comptable',
+                                                                'Commercial' : list.role == 'Commercial'}"
+                              style="border-radius:10px;padding:5px;color:white">{{ list.role }}</span ></td>
+                            <td> <span class="name" [routerLink]="['/users/user', list.id ]" style="cursor: pointer;"><mat-icon>chevron_right</mat-icon></span></td>
+                          <!--  <td> <span class="name"></span><button mat-raised-button color="primary" [routerLink]="['/medecins/user', list.id ]">Voir</button></td>
+                            <td> <span class="name"></span><button mat-raised-button color="warn" (click)="deleteUser(list.id)">Supprimer</button></td>-->
+                        </tr>
+                </tbody>
+            </table>
+          </div>
+          <mat-paginator  *ngIf="displayedUsers" [length]="paginatorInfo.length"
+          [pageIndex]="paginatorInfo.pageIndex"
+          [pageSize]="paginatorInfo.pageSize" 
+          [pageSizeOptions]="[5, 10, 15]"
+          (page)="pageChange($event)"></mat-paginator>
+</div>
+</div>

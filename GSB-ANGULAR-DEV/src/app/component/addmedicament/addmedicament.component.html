@@ -1,0 +1,37 @@
+
+<form [formGroup]="formInput" >
+    <mat-form-field class="example-full-width" style="display: block;">
+    <input matInput placeholder="Nom" value="" formControlName="nom">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" style="display: block;">
+        <input matInput type="number" placeholder="Prix" value="" formControlName="prix">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" style="display: block;">
+    <textarea matInput placeholder="Description" value="" formControlName="description"></textarea>
+</mat-form-field>
+
+<div class="form">
+    <label style="padding: 7px;
+    background: #03a9f4;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;" 
+    for="file">Choisir une photo</label>
+    
+    <input type="file" style="display: none;" id="file" (change)="handleFileInput($event.target.files);onSelectFile($event)" formControlName="img">
+
+    <img *ngIf="url_image" style="width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    margin-left: 10px;" 
+    [src]="url_image" alt="">  
+</div>
+
+<div style="text-align:right;">
+    <button mat-flat-button color="primary" (click)="add()">Ajouter</button>
+</div>
+
+</form>

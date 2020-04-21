@@ -1,0 +1,35 @@
+<div *ngIf="DisplayFactures">
+      <table  class="table table-striped dataTable no-footer" id="dtBasicExample" role="grid" aria-describedby="dtBasicExample_info">
+        <thead>
+            <tr role="row">
+                <th style=" width: 20px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Numéro de la note de frais</th>
+                <th style=" width: 34px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">Date de la note de frais</th>
+                <th style=" width: 34px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">Prix de l'hotel</th>
+                <th style=" width: 48px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Prix du repas</th>
+                <th style=" width: 62px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Nombre de kilometre</th>
+                <th style=" width: 5px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                <!--  <th style="color: #757575; width: 261px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                <th style="color: #757575; width: 261px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                -->
+            </tr>
+        </thead>
+        <tbody>                                                                                          
+                <tr role="listitem" class="odd"  *ngFor="let list of DisplayFactures; let lastlist = last"  >
+                    <td class="uid">{{list.id}}</td>
+                    <td class="uid">{{list.date}}</td>
+                    <td class="uid">{{list.prix_hotel}}€ </td>
+                    <td> <span class="name">{{ list.prix_repas }}€</span></td>
+                    <td> <span class="name">{{list.nombre_kilometre}}km</span></td>
+                    <td> <span class="name" (click)="seeFacture(list.id)" style="cursor: pointer;">
+                        <mat-icon>chevron_right</mat-icon></span></td>
+                  <!--  <td> <span class="name"></span><button mat-raised-button color="primary" [routerLink]="['/medecins/user', list.id ]">Voir</button></td>
+                    <td> <span class="name"></span><button mat-raised-button color="warn" (click)="deleteUser(list.id)">Supprimer</button></td>-->
+                </tr>
+        </tbody>
+    </table>
+  </div>
+  <mat-paginator  *ngIf="DisplayFactures" [length]="paginatorInfo.length"
+  [pageIndex]="paginatorInfo.pageIndex"
+  [pageSize]="paginatorInfo.pageSize" 
+  [pageSizeOptions]="[5, 10, 15]"
+  (page)="pageChange($event)"></mat-paginator>

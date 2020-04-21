@@ -1,0 +1,28 @@
+<span class="title-component" > {{ title }}</span>
+<div class="grid-container">
+
+<div class="tablecontent">
+                <div><app-search-bar  (searchChanged)="search($event)" class="search-bar" ngDefaultControl  name="searchTerm"></app-search-bar></div> 
+
+    <table class="table table-striped dataTable no-footer" id="dtBasicExample" role="grid" aria-describedby="dtBasicExample_info">
+                <thead>
+                    <tr role="row">
+                        <th style="color: #757575; width: 20px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1">Id</th>
+                        <th style="color: #757575; width: 34px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" >Prénom</th>
+                        <th style="color: #757575; width: 261px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" >Nom</th></tr>
+                </thead>
+                <tbody>                                                                                          
+                        <tr role="listitem" class="odd" *ngFor="let list of displayedMedecins; let lastlist = last">
+                        <td class="uid">{{ list.id }}</td>
+                        <td class="uid">{{ list.firstname }}</td>
+                        <td> <span class="name"></span>{{ list.lastname }}</td>
+                    </tr></tbody>
+            </table>
+        </div>
+        <mat-paginator  [length]="paginatorInfo.length"
+        [pageIndex]="paginatorInfo.pageIndex"
+        [pageSize]="paginatorInfo.pageSize" 
+        [pageSizeOptions]="[5, 10, 15]"
+        (page)="pageChange($event)"></mat-paginator>
+      <!-- <app-table></app-table> -->
+</div>

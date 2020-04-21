@@ -1,0 +1,37 @@
+<div *ngIf="displayedMedecins">
+      <table  class="table table-striped dataTable no-footer" id="dtBasicExample" role="grid" aria-describedby="dtBasicExample_info">
+        <thead>
+            <tr role="row">
+                <th style=" width: 20px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Adresse email</th>
+                <th style=" width: 34px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">Prénom</th>
+                <th style=" width: 48px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Nom</th>
+                <th style=" width: 62px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Adresse</th>
+                <th style="width:15px" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+              <!--  <th style="color: #757575; width: 261px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                <th style="color: #757575; width: 261px;" class="sorting" tabindex="0" aria-controls="dtBasicExample" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending"></th>
+                -->
+            </tr>
+        </thead>
+        <tbody>                                                                                          
+                <tr role="listitem" class="odd"  *ngFor="let list of displayedMedecins; let lastlist = last"  >
+                    <td class="uid"><img style="    width: 41px;
+                      margin-right: 10px;
+                      border-radius: 80px;
+                      height: 41px;
+                      object-fit: cover;"
+                      src="http://localhost:3000/api/avatar/{{list.image}}">{{ list.email }}</td>
+                    <td class="uid">{{ list.firstName }}</td>
+                    <td> <span class="name"></span>{{ list.lastName }}</td>
+                    <td> <span class="name"></span>{{ list.address }}</td>
+                    <td> <span class="name" [routerLink]="['/commercial/user', list.id ]" style="cursor: pointer;"><mat-icon>chevron_right</mat-icon></span></td>
+                  <!--  <td> <span class="name"></span><button mat-raised-button color="primary" [routerLink]="['/medecins/user', list.id ]">Voir</button></td>
+                    <td> <span class="name"></span><button mat-raised-button color="warn" (click)="deleteUser(list.id)">Supprimer</button></td>-->
+                </tr>
+        </tbody>
+    </table>
+  </div>
+  <mat-paginator  *ngIf="displayedMedecins" [length]="paginatorInfo.length"
+  [pageIndex]="paginatorInfo.pageIndex"
+  [pageSize]="paginatorInfo.pageSize" 
+  [pageSizeOptions]="[5, 10, 15]"
+  (page)="pageChange($event)"></mat-paginator>

@@ -1,0 +1,264 @@
+//font
+@import url('https://fonts.googleapis.com/css?family=Poppins:400&display=swap');
+//font
+
+
+//variables
+$full_width:100%;
+$primary_background:#fff;
+$primary_accent:#00b2dc;
+//variables
+
+a{
+    text-decoration: none;
+}
+
+.limiter{
+    width: $full_width;
+}
+
+.container{
+    width: $full_width;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: $primary_background;
+}
+
+.wrap-login{
+    width: $full_width;
+    background:$primary_background;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row-reverse;
+}
+
+.left-side{
+    min-height: 100vh;
+    display: block;
+    background: $primary_background;
+    width: 560px;
+    padding: 70px 55px 0px;
+    
+}
+
+.logo-container{
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.logo-gsb{
+    width: 80px;
+}
+
+.right-side{
+    background-image: url("../../../assets/gif.gif");
+    width: calc(100% - 560px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.right-side::before{
+    content: "";
+    display: block;
+    width: $full_width;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: #0a6f9f00;
+}
+
+.login-title{
+    width: 100%;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: #333;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 73px;
+}
+
+
+.mat-form-field{
+    width:$full_width;
+}
+
+.mat-input-element{
+    color: $primary_accent;
+    caret-color: $primary_accent;
+}
+
+.container-loggin-button, .container-signup-button{
+    text-align: center;
+    margin-top: 35px;
+}
+
+.container-signup-button p {
+    font-size: 14px;
+}
+
+.container-signup-button p a {
+    color: #00b2dc;
+}
+
+
+.loggin-button{
+    font-family: 'Poppins', sans-serif;
+    width: $full_width;
+    cursor: pointer;
+    background: $primary_accent;
+    text-transform: uppercase;
+    color: white;
+    padding: 15px;
+    border-radius: 57px;
+    border:none;
+    box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    -moz-box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    -webkit-box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    -o-box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    -ms-box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    transition: all .4s;
+    outline: none;
+}
+
+.loggin-button:hover {
+    background: #333;
+    box-shadow: 0 10px 30px 0px rgb(51, 51, 51);
+    -moz-box-shadow: 0 10px 30px 0px rgb(51, 51, 51);
+    -webkit-box-shadow: 0 10px 30px 0px rgb(51, 51, 51);
+    -o-box-shadow: 0 10px 30px 0px rgb(51, 51, 51);
+    -ms-box-shadow: 0 10px 30px 0px rgb(51, 51, 51);
+}
+
+mat-icon{
+    color:$primary_accent;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: $primary_accent !important;
+   }
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #dedede !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: $primary_accent !important;;
+  }
+
+  .flex-sb-m {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+.w-full {
+    width: 100%;
+}
+.p-b-32 {
+    padding-bottom: 32px;
+}
+.p-t-3 {
+    padding-top: 3px;
+}
+
+.input-checkbox100 {
+    display: none;
+}
+
+.label-checkbox100 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #999;
+    line-height: 1.4;
+    display: block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+}
+
+.label-checkbox100::before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    font-size: 13px;
+    color: transparent;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    background: #fff;
+    border: 1px solid #00b2dc;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.txt1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #555;
+}
+
+.p-b-20 {
+    padding-bottom: 20px;
+}
+.p-t-46 {
+    padding-top: 46px;
+}
+.text-center {
+    text-align: center!important;
+}
+
+.txt2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #999;
+}
+
+.sign-up{
+    background: #c5548a;
+    box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    -moz-box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    -webkit-box-shadow: 0 10px 30px 0px rgba(197, 84, 138, 0.59);
+    -o-box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+    -ms-box-shadow: 0 10px 30px 0px rgba(0, 178, 220, 0.47);
+}

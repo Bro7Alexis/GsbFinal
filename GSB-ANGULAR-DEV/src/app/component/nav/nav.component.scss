@@ -1,0 +1,243 @@
+//import
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+//import
+
+.user-name{
+  display: inline;
+  vertical-align: middle;
+  font-size: 17px;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.toolbar-content{
+  text-align: right;
+  width:100%;
+  display: flex;
+}
+
+.sidenav {
+  width: 270px;
+}
+
+.mat-drawer-side {
+  border-right: solid 1px rgba(0, 0, 0, 0.04);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  /*position: sticky;*/
+  top: 0;
+  z-index: 1;
+}
+
+.mat-toolbar-app-name{
+  color: #00b2dc;
+  font-family: 'Pacifico', cursive;
+  font-size: 26px;
+}
+
+.mat-toolbar.mat-primary {
+  background: transparent;
+  color:#93959d;
+  border-bottom: 1px solid #dadbe4
+}
+
+.mat-list-base .mat-list-item {
+  color: #91949c;
+}
+
+.mat-list-content{
+  margin-top: 30px;
+}
+
+.page-title{
+  padding: 0px 20px 0px 20px;
+}
+
+.mat-list-item {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mat-sidenav-content{
+  margin: 0px 0px 0px 0px;
+}
+
+.is-active{
+  color:#03abd6 !important;
+}
+
+
+.is-active:focus{
+  background: none !important;
+}
+
+.is-active:hover{
+  background: none !important;
+}
+.mat-list-base .mat-list-item {
+  font-size: 15px;
+}
+
+.mat-icon{
+  margin-right: 15px;
+}
+
+.menu{
+  margin: 0px;
+}
+
+#menuToggle{
+  vertical-align: middle;
+    padding: 14px 12px;
+    cursor: pointer;
+}
+
+#menuToggle span{
+  display: block;
+  width: 17px;
+  height: 2px;
+  margin-bottom: 3px;
+  position: relative;
+  background: darkgrey;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease;
+  cursor: pointer;
+}
+
+#menuToggle span:nth-child(2) {
+  width: 10px !important;
+}
+
+.mat-icon-button{
+    float: left;
+    margin: auto;
+    margin-left: 0px;
+}
+
+.power-icon, .settings-icon{
+  margin:0px;
+  vertical-align: middle;
+  color: darkgray;
+  height: 23px;
+  width: 23px;
+  font-size: 23px;
+}
+
+.icon{
+  padding: 20px;
+}
+
+.power-icon:hover{
+  transition: 0.3s;
+  color: #ff7b7b;
+}
+.settings-icon:hover{
+  transition: 0.3s;
+  color: #75bcd9
+}
+
+.media{
+margin-top:0px;
+font-family: "Poppins", sans-serif !important;
+display: block;
+}
+
+.user_img{
+  margin: auto;
+    text-align: center;
+    display: inline-block;
+}
+
+.user_name {
+  display: inline-block;
+  color: #969696;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.user_background {
+  background-position: center;
+  background-size: cover;
+  height: 32px;
+  width: 32px;
+  border-radius: 153px;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0px 5px 17px rgba(158, 158, 158, 0.33);
+  cursor: pointer;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+
+.icon{
+  cursor: pointer;
+}
+
+.top_container {
+  z-index: 1;
+  top: 0;
+  width: 100%;
+}
+
+.profile_box {
+  float: left;
+  margin: auto;
+  margin-left: 0px;
+}
+
+.search_container {
+  margin-top: 10px;
+  display: inline-block;
+  margin-top: 3px !important;
+}
+
+#menuToggle {
+  vertical-align: middle;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.notifications, .quit, .settings {
+  text-align: right;
+  font-size: 20px;
+  display: flex;
+  color: gray;
+  cursor: default;
+  line-height: 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+.information{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons-container{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icons-container button{
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.overflow-hidden{
+  overflow: hidden;
+}

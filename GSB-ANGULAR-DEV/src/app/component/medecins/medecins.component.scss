@@ -1,0 +1,16 @@
+.tablecontent {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 23px !important;
+    line-height: 1.42857143;
+    vertical-align: top;    
+    text-align: left;
+    border:none;
+}
+
+.table>tbody>tr>td{
+    background: transparent !important;
+}

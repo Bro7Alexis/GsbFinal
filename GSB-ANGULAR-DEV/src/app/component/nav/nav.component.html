@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container" *ngIf="navService.visible">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="mat-toolbar-app-name">Gsb</mat-toolbar>
+    <div class="mat-list-content">
+    <mat-nav-list *ngFor=" let list of navList; let i = index;">
+      <a mat-list-item [routerLink]="list.rout" *ngIf="list.role.includes(role)" routerLinkActive="is-active" ><mat-icon>{{ list.icon }}</mat-icon>{{ list.name }}</a>
+    </mat-nav-list>
+
+    <div class="divider"> </div >
+      <mat-nav-list *ngFor=" let list of navList1; let i = index;">
+        <a mat-list-item [routerLink]="list.rout" *ngIf="list.role.includes(role)" routerLinkActive="is-active" ><mat-icon>{{ list.icon }}</mat-icon>{{ list.name }}</a>
+      </mat-nav-list>
+  </div>
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="{'overflow-hidden' : router.url.includes('commercial/user')}" *ngFor="let user of UserDto">
+     
+        <mat-toolbar color="primary">
+          <div class="top_container">
+          <div class="toolbar-content">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()">
+            <div id="menuToggle">
+                <span></span>
+                <span></span>
+              </div>
+          </button>
+
+        <div class="information">
+
+          <div class="notifications">
+          <div class="icons-container">
+            <div style="padding: 20px">
+            <button [matMenuTriggerFor]="menu" class="power_out settings_icons"><mat-icon class="settings-icon">settings</mat-icon></button>
+            <mat-menu #menu="matMenu">
+              <button class="pointer" (click)="logout()" mat-menu-item>Se déconnecter</button>
+            </mat-menu>
+            </div>
+          </div>
+            <div class="media">
+                  <img style="width: 35px;
+                  border-radius: 80px;
+                  height: 35px;
+                  object-fit: cover;" class="user-img"  src="http://localhost:3000/api/avatar/{{user.image}}" alt="">
+                   <span class="user_name">{{user.firstName}} {{user.lastName}}</span>                  
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </mat-toolbar>
+
+    <router-outlet>
+    </router-outlet> 
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet *ngIf="!navService.visible">
+</router-outlet> 

@@ -1,0 +1,82 @@
+<div class="top-div" >
+  <div class="breadcrum" style="display: flex;align-items: center;">
+     <p style="font-size: 15px;font-weight: bold;">Utilisateurs ></p> 
+     <p style="font-size: 15px;" class="" *ngFor="let name of UserDto" > {{name.firstName}} {{name.lastName}} </p>
+    </div>
+</div>
+<div class="fiche-user-container" >
+    <div *ngFor="let user of UserDto">
+        <div class="container-flex">
+            <div class="user-top-detail">
+                <img class="user-img"  src="http://localhost:3000/api/avatar/{{user.image}}" alt="">
+
+                <div>
+                    <p class="user-role">{{user.role}}</p>
+                    <p class="user-name">Mr.{{user.firstName}} {{user.lastName}}</p>
+                    <button *ngIf="role == 'Admin'" mat-flat-button color="warn" (click)="deleteUser()">Supprimer</button> 
+                </div>
+            </div>
+        </div>
+        <div>
+            <section class="section_info" style=" margin-top: 15px !important">
+              <div>
+              <form id="settings_perso" autocomplete="off">
+              <div class="form-row" id="userinfo" *ngFor="let user of UserDto">
+              
+              <div class="form-group col-md-6">
+              <label class="settings_subtitle" for="firstname">Prénom</label>
+              <input class="settings_input" name="firstname" type="text" id="firstname" value={{user.firstName}}>
+              </div>
+              
+              
+              <div class="form-group col-md-6">
+              <label class="settings_subtitle" for="lastname">Nom</label>
+              <input class="settings_input" type="text" name="lastname" id="lastname" value={{user.lastName}}>
+              </div>
+              
+              <div class="form-group col-md-6">
+              <label class="settings_subtitle" for="email">E-mail</label>
+              <input class="settings_input" type="text" autocomplete="disabled" id="email" name="email" value={{user.email}}>
+              </div>
+              
+              <div class="form-group col-md-6">
+                  <label class="settings_subtitle" for="adresse">Adresse</label>
+                  <input class="settings_input" type="text" id="adresse" name="address" value={{user.address}}>
+              </div>
+              
+              <div class="form-group col-md-6">
+                  <label class="settings_subtitle" for="actualpswd">Mot de passe</label>
+                  <input class="settings_input" autocomplete='new-password' type="password" id="actualpswd" name="mdp" value="">
+              </div>
+              
+              <div class="savesettings" style="float: left;width: 100%;">
+                  <button mat-flat-button class="send" color="primary" (click)="UpdateCredential()" name="savesettings" id="savesettings">Sauvegarder</button>
+              </div>
+              
+              <div class="form-group" style="float: left; width:100%"><span class="settings_title">Changer de mot de passe</span></div>
+              <div class="col-md-4 mb-3">
+              <label class="settings_subtitle" for="actualpswd">Ancien mot de passe</label>
+              <input class="settings_input" autocomplete='new-password' type="password" id="actualpswd" name="mdp">
+              </div>
+              
+              <div class="col-md-4 mb-3">
+                  <label class="settings_subtitle" for="newpswd">Nouveau mot de passe</label>
+                  <input class="settings_input" autocomplete='new-password' type="password" id="newpswd" name="mdp">
+              </div>
+              
+              <div class="col-md-4 mb-3">
+                  <label class="settings_subtitle" for="newpswd">Nouveau mot de passe</label>
+                  <input class="settings_input" autocomplete='new-password' type="password" id="newpswd" name="mdp">
+              </div>
+              
+              </div>
+              
+              <div class="savesettings" style="float: left;width: 100%;margin-top: 15px;">
+              <button mat-flat-button color="primary" class="send"  name="savesettings" id="savesettings" value="Sauvegarder">Sauvegarder</button>
+              </div>
+              </form>
+              </div>
+              </section>
+        </div>
+    </div>
+</div>

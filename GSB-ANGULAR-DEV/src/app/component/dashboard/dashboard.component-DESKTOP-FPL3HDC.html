@@ -1,0 +1,20 @@
+<div class="grid-container">
+  <span class="title-component">{{ title }}</span>
+  <mat-grid-list cols="3" rowHeight="150px">
+    <mat-grid-tile *ngFor="let card of cards | async ; let first = first; let second = second ; let last = last"
+     [colspan]="card.cols" [rowspan]="card.rows" [class.first-item]="first" [class.second-item]="second" [class.last-item]="last">
+      <mat-card class="dashboard-card" >
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div></div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+

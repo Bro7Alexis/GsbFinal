@@ -1,0 +1,25 @@
+<div class="top-div" ><h3 class="title-component">{{ title }}</h3>  <button mat-flat-button color="primary" (click) = "toggleDisplay()" >	
+    <mat-icon style="margin-right: 2px;font-size: 20px;">filter_list</mat-icon>Filtrer</button>
+</div>
+<div class="grid-container">
+    <div class="tablecontent">
+        <div class="contentFilter" [hidden] = "isShow"> 
+           <div class="filterSearch"> 
+             <label for="searchName">Prenom</label>
+             <app-search-bar  (input)="onSearchFirstnameChange($event.target.value)" class="search-bar" ngDefaultControl  name="searchTerm"></app-search-bar>
+           </div>
+           <div class="filterSearch">
+             <label for="searchName">Nom</label>
+             <app-search-bar  (input)="onSearchEmailChange($event.target.value)" ngDefaultControl  name="searchTerm"></app-search-bar>
+           </div>
+           <div class="filterSearch">
+             <label for="searchName">Email</label>
+             <app-search-bar  (input)="onSearchLastnameChange($event.target.value)" class="search-bar" ngDefaultControl  name="searchTerm"></app-search-bar>
+           </div>
+           <div class="filterSearch">
+            <label for="searchName">Adresse</label>
+            <app-search-bar  (input)="onSearchLastnameChange($event.target.value)" class="search-bar" ngDefaultControl  name="searchTerm"></app-search-bar>
+           </div>
+         </div>
+    <app-commercialtable></app-commercialtable>
+</div>

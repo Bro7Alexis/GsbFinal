@@ -1,0 +1,128 @@
+<div class="limiter">
+
+    <div class="container">
+
+        <div class="wrap-login">
+
+             <div class="left-side">
+
+                <div class="logo-container">
+                        <img class="logo-gsb" src="../assets/Logo-gsb.png" alt="">
+                </div>
+            
+                    <span class="login-title">Créer votre compte</span>
+
+                <form [formGroup]="formInput">
+                    
+                    <div class="form-row">
+
+
+                        <div class="form">
+                            <!--Identifiant-->
+                            <mat-form-field class="example-full-width">
+                                
+                                <input matInput placeholder="Nom" value="" autocomplete="off" formControlName="lastname">
+                
+                            </mat-form-field>
+                            <!--Identifiant-->
+                
+                    </div>
+
+                    
+                    <div class="form">
+                        <!--Identifiant-->
+                        <mat-form-field class="example-full-width">
+                            
+                            <input matInput placeholder="Prénom" value="" autocomplete="off" formControlName="firstname">
+
+                        </mat-form-field>
+                        <!--Identifiant-->
+
+                </div>
+
+                <div class="form">
+                    <!--Identifiant-->
+                    <mat-form-field class="example-full-width">
+                        
+                        <input matInput placeholder="Email" value="" autocomplete="off" formControlName="email">
+                
+                    </mat-form-field>
+                    <!--Identifiant-->
+                
+                </div>
+
+                <div class="form">
+                    <!--Identifiant-->
+                    <mat-form-field class="example-full-width">
+                        
+                        <input matInput placeholder="Adresse" value="" autocomplete="off" formControlName="adresse">
+                
+                    </mat-form-field>
+                    <!--Identifiant-->
+                
+                </div>
+
+                <div class="form">
+                <mat-form-field>
+                    <mat-label>Role</mat-label>
+                    <mat-select formControlName="role">
+                      <mat-option  [value]="role" *ngFor="let role of roles">
+                        {{ role }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Sexe</mat-label>
+                        <mat-select formControlName="gender">
+                            <mat-option [value]="gender" *ngFor="let gender of genders">{{gender}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="form">
+                    <label style="padding: 7px;
+                    background: #03a9f4;
+                    color: white;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    cursor: pointer;" 
+                    for="file">Choisir une photo</label>
+                    
+                    <input type="file" style="display: none;" id="file" (change)="handleFileInput($event.target.files);onSelectFile($event)" formControlName="image">
+                </div>
+
+
+                <div class="form">
+
+                        <!--Mot de passe-->
+                        <mat-form-field class="example-full-width">
+
+                            <input matInput placeholder="Mot de passe" type="password" autocomplete="off"  formControlName="password">
+                            
+                        </mat-form-field>
+                 <!--Mot de passe-->
+           
+           </div>  
+
+</div>
+
+           <div class="container-loggin-button">
+            <button class="loggin-button cancel-button" (click)="GoBack()" >Retour</button> <button class="loggin-button" (click)="signup()">Ajouter</button>
+           </div>
+        
+        </form>
+                   
+            </div>
+
+            <div class="right-side">
+
+            </div>
+
+    </div>
+
+    </div>
+
+</div>
